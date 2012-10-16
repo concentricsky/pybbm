@@ -283,10 +283,7 @@ class Post(RenderableItem):
         return reverse('pybb:post', kwargs={'pk': self.id})
 
     def delete(self, *args, **kwargs):
-        self_id = self.id
-        head_post_id = self.topic.posts.order_by('created')[0].id
-
-        if self_id == head_post_id:
+        if self.topic.posts.count() == 1:
             self.topic.delete()
         else:
             super(Post, self).delete(*args, **kwargs)
