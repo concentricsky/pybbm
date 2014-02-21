@@ -8,7 +8,6 @@ PyBBM required next packages to be installed:
 
 * django
 * markdown
-* postmarkup
 * south
 * pytils
 * django-annoying

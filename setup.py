@@ -13,7 +13,6 @@ setup(
     install_requires = [
             'django',
             'markdown',
-            'postmarkup',
             'south',
             'pytils',
             'django-annoying',

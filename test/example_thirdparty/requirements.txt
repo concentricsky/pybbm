@@ -1,7 +1,6 @@
 Django>=1.4
 South>=0.7.5
 Markdown>=2.1
-postmarkup>=1.2.0
 
 # TODO: remove dependencies
 django-annoying>=0.7.6
