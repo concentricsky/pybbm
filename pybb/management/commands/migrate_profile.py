@@ -21,7 +21,7 @@ class Command(BaseCommand):
             #print(u'migrating profile for %s\n' % user.username)
             pybb_profile = user.pybb_profile
             try:
-                profile = user.get_profile()
+                profile = user.profile
             except profile_model.DoesNotExist:
                 profile = profile_model(user=user)
             profile.avatar = pybb_profile.avatar

@@ -351,7 +351,7 @@ class ProfileEditView(generic.UpdateView):
     form_class = EditProfileForm
 
     def get_object(self, queryset=None):
-        return self.request.user.get_profile()
+        return self.request.user.profile
 
     @method_decorator(login_required)
     @method_decorator(csrf_protect)

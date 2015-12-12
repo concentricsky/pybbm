@@ -12,10 +12,10 @@ from pybb import defaults
 def post_saved(instance, **kwargs):
     notify_topic_subscribers(instance)
 
-    if instance.user.get_profile().autosubscribe:
+    if instance.user.profile.autosubscribe:
         instance.topic.subscribers.add(instance.user)
 
-    profile = instance.user.get_profile()
+    profile = instance.user.profile
     profile.post_count = instance.user.posts.count()
     profile.save()
 

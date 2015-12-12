@@ -139,9 +139,6 @@ admin.site.register(Topic, TopicAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(Attachment, AttachmentAdmin)
 
-if settings.AUTH_PROFILE_MODULE == 'pybb.Profile':
-    admin.site.register(Profile, ProfileAdmin)
-
 # This can be used to debug read/unread trackers
 
 #admin.site.register(TopicReadTracker, TopicReadTrackerAdmin)
