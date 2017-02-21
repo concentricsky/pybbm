@@ -354,6 +354,10 @@ class Profile(PybbProfile):
         return reverse('pybb:user', kwargs={'username': self.user.username})
 
 
+def attachment_file_name(instance, filename):
+    return get_file_path(instance, filename, to=defaults.PYBB_ATTACHMENT_UPLOAD_TO)
+
+
 class Attachment(models.Model):
 
     class Meta(object):
@@ -362,8 +366,7 @@ class Attachment(models.Model):
 
     post = models.ForeignKey(Post, verbose_name=_('Post'), related_name='attachments')
     size = models.IntegerField(_('Size'))
-    file = models.FileField(_('File'),
-                            upload_to=lambda instance, filename: get_file_path(instance, filename, to=defaults.PYBB_ATTACHMENT_UPLOAD_TO))
+    file = models.FileField(_('File'), upload_to=attachment_file_name)
 
     def save(self, *args, **kwargs):
         self.size = self.file.size
